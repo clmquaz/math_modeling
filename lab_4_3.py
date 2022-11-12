@@ -1,7 +1,4 @@
-def(*args, **kwargs)
-
-import numpy as np
-
+import from модуль_физ_конст.py g
 
 def uuu (m,h,v):
   m = int(input("m = "))
