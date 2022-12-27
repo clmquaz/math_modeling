@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
  
 
-def cicle(R=2, t1=0, t2=8*np.pi):
+def cicle(R=2, t1=0, t2=2*np.pi):
     t = np.arange(t1, t2, 0.1)
     x = R*(t-np.sin(t))
     y = R*(1-np.cos(t))

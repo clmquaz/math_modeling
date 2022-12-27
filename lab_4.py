@@ -4,16 +4,34 @@ from matplotlib.animation import FuncAnimation
 
 fig, ax = plt.subplots()
 
-anim_object, = plt.plot([], [], '-', lw=2)
+rr, = plt.plot([], [], '-', lw=2)
 xdata, ydata = [], []
 
+x0 = 0.1
+y0 = 0.1
+C = 0.3
+D = 0.33
+
+for i in range(30):
+    xdata.append(x0)
+    ydata.append(y0)
+
+    x1 = x0**2-y0+C
+    y1 = 2*x0*y0+D
+
+    x0 = x1
+    y0 = y1
+    
 
 
-def apdate(n, xy0, C, D ):
-    x = np.zeros((1, n))
-    y = np.zeros((1, n))
-    x[1,0] = 
-    y[1,0] = 
-    xdata.append(x)
-    ydata.append(y)
-    return xdata, ydata
+edge = 1
+plt.axis('equal')
+ax.set_xlim(-edge, edge)
+ax.set_ylim(-edge, edge)
+
+def animate(i):
+    rr.set_data(xdata[:i], ydata[:i])
+
+anim = FuncAnimation(fig, animate, frames=30, interval=100) 
+
+anim.save('lrr.gif')
