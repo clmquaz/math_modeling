@@ -15,7 +15,7 @@ class Pyramid:
         r = 0
         s = 0
         if self.bricks_count == 'error':
-            print('error') 
+            pass
         else:
             for i in range(self.max_h, 0, -1):
                 r += i
@@ -27,7 +27,7 @@ class Pyramid:
     def is_done(self):
         r = 0
         if self.bricks_count == 'error':
-            print('error')
+            pass
         else:
             for i in range(self.max_h, 0, -1):
                 r+=i
@@ -56,6 +56,10 @@ class Builder:
             self.bricks -= bricks
         else:
             print('error')
-    def work_day():
+    def work_day(self):
         d = 1
-        
+        r = 0
+        for i in range(self.my_pyramid.max_h, 0, -1):
+            r+=i
+        while self.my_pyramid.bricks_count<r-5:
+            
