@@ -6,17 +6,16 @@ fig, ax = plt.subplots()
 ball, = plt.plot([], [], '-', color='r', label='Ball')
 
 
-def circle_move(R):
-    T = np.linspace(1, 100, 100)
+def circle_move(R, t):
     al = np.linspace(0, 2*np.pi, 100)
-    for t in T:
-        x = R*np.cos(al)*t
-        y = R*np.sin(al)*t
+    x=R*np.cos(al)*t
+    y=R*np.sin(al)*t
+    print(t)
     return x, y
 
 
 def animate(i):
-    ball.set_data(circle_move(R=1))
+    ball.set_data(circle_move(R=1, t=i))
 
 
 edge = 150
