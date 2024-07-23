@@ -96,5 +96,6 @@ class Builder:
 
 b = Builder(13)
 
-while True:
-    b.work_day()
+#while True:
+#    b.work_day()
+b.work_day()
