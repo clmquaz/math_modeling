@@ -72,7 +72,6 @@ class Builder:
         else:
             pass
         print(f'day {d}')
-
     def work_day(self):
         r=0
         for i in range(self.my_pyramid.max_h, 0, -1):
@@ -94,9 +93,6 @@ class Builder:
         else:
             exit()
     
-
-
-
 
 b = Builder(13)
 
