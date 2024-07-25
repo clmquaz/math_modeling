@@ -40,7 +40,7 @@ class Pyramid:
 class Builder:
     def __init__ (self, bricks):
         self.bricks = bricks
-        self.my_pyramid = Pyramid(5)
+        self.my_pyramid = Pyramid(15)
         self.day = 0
     def buy_bricks(self, bricks):
         self.bricks += bricks
@@ -92,10 +92,10 @@ class Builder:
             print(f'{self.bricks} bricks left', end = '\n\n')
         else:
             exit()
-    
+
 
 b = Builder(13)
 
-#while True:
-#    b.work_day()
-b.work_day()
+while True:
+    b.work_day()
+#b.work_day()
