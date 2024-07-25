@@ -1,28 +1,58 @@
-from matplotlib.animation import FuncAnimation
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
  
+fig, ax = plt.subplots() 
  
-def circle_move(R, angle_vel, time):
-    alpha = angle_vel * np.pi / 180 * time
-    x = R * np.cos(alpha)
-    y = R * np.sin(alpha)
+line, = plt.plot([], [], '-', lw=2)
+ 
+xdata, ydata = [], [] 
+
+edge = 7
+plt.axis('equal')
+ax.set_xlim(-edge, edge)
+ax.set_ylim(-edge, edge)
+
+ball1, = plt.plot([], [], '-', color='r', label='Ball')
+ball2, = plt.plot([], [], '-', color='r', label='Ball')
+
+def circle_move(t):
+    R = 1
+    x0 = R*(t-np.sin(t))
+    y0 = R*(1-np.cos(t))
+    alpha = np.arange(0, 2*np.pi, 0.1)
+    R = 0.1
+    x = x0 + R*np.cos(alpha)
+    y = y0 + R*np.sin(alpha)
     return x, y
+
+def ball_move(t):
+    R = 1
+    x0 = R*(t-np.sin(t))-R*(t-np.sin(t))/2
+    y0 = R/2
+    alpha = np.arange(0, 2*np.pi, 0.1)
+    R = R*(np.pi-np.sin(np.pi))/2
+    x = x0 + R*np.cos(alpha)
+    y = y0 + R*np.sin(alpha)
+    return x, y
+
+def line_move(t):
+    R = 1
+    xdata.append(R*(t-np.sin(t)))
+    ydata.append(R*(1-np.cos(t)))
+    return xdata, ydata
+
+def update(i):
+    line.set_data(line_move(t=i)) 
+    ball1.set_data(circle_move(t=i))
+    ball2.set_data(ball_move(t=i))
+    return line, ball1, ball2
  
+ani = FuncAnimation(fig, update, frames=np.arange(-2*np.pi, 2*np.pi, 0.1), interval=100)            
  
-def animate(i):
-    ball.set_data(circle_move(R=2, angle_vel=1, time=i))
- 
- 
-if __name__ == '__main__':
- 
-    fig, ax = plt.subplots()
-    ball, = plt.plot([], [], 'o', color='r', label='Ball')
- 
-    edge = 3
-    plt.axis('equal')
-    ax.set_xlim(-edge, edge)
-    ax.set_ylim(-edge, edge)
- 
-    ani = FuncAnimation(fig, animate, frames=180, interval=30)
-    ani.save('animation_2.gif') 
+
+
+#ani = FuncAnimation(fig, animate, frames=np.arange(-2*np.pi, 2*np.pi, 0.1), interval=100)   
+
+
+ani.save('anim3.gif')
