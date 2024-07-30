@@ -1,5 +1,4 @@
 import numpy as np
-import array
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
@@ -15,10 +14,11 @@ ax.set_ylim(-edge, edge)
 x0 = []
 y0 = []
 
-def move(t, a):
-    x =[0, 0, a, a, 0]
+def move(t, A):
+    a=A/2
+    x = [-a, a, a, -a, -a]
     x0 = np.asarray (x)
-    y = [0, a, a, 0, 0]
+    y = [-a, -a, a, a, -a]
     y0 = np.asarray (y)
     print(x0)
     x = x0*np.cos(t)-y0*np.sin(t)
@@ -27,7 +27,7 @@ def move(t, a):
     return x, y
 
 def anim(i):
-    sq.set_data(move(t=i, a=5))
-    
+    sq.set_data(move(t=i, A=5))
+
 ani = FuncAnimation(fig, anim, frames=np.arange(0, 4*np.pi, 0.1), interval=100)
 ani.save('anim4.gif')
