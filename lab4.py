@@ -17,3 +17,4 @@ class Planet:
 Planet.time(293580235730475384657)
 ss = Planet(40000, 293580235730475384657, 'astro')
 ss.look
+Planet.names()
