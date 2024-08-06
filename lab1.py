@@ -18,11 +18,12 @@ class SchoolJournal:
             sr += self.grade_list[i]
         print(f'Final grage: {sr/len(self.grade_list)}')
 
-st =  SchoolJournal('astr', 'ser way')
-st.grade(3)
-st.grade(3)
-st.grade(5)
-st.grade(4)
-st.grade(7)
-st.printer()
-st.final_grade()
+if __name__ == '__main__':
+    st =  SchoolJournal('astr', 'ser way')
+    st.grade(3)
+    st.grade(3)
+    st.grade(5)
+    st.grade(4)
+    st.grade(7)
+    st.printer()
+    st.final_grade()

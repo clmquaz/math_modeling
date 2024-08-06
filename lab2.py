@@ -2,6 +2,8 @@ class Pyramid:
     def __init__(self, max_h):
         self.max_h = max_h
         self.bricks_count = 0
+
+
     def add_bricks(self, bricks):
         self.bricks_count += bricks
         r = 0
@@ -11,6 +13,8 @@ class Pyramid:
             self.bricks_count = 'error'
         else:
             pass
+
+
     def get_height(self):
         r = 0
         s = 0
@@ -24,6 +28,8 @@ class Pyramid:
                 else:
                     s += 1
             print(s)
+
+
     def is_done(self):
         r = 0
         if self.bricks_count == 'error':
@@ -42,23 +48,30 @@ class Builder:
         self.bricks = bricks
         self.my_pyramid = Pyramid(15)
         self.day = 0
+
+
     def buy_bricks(self, bricks):
         self.bricks += bricks
         if self.bricks <= 15 and bricks>= 0:
             pass
         else:
             self.bricks -= bricks
+
+
     def build_pyramid(self, bricks):
         if bricks>=1 and bricks<=5:
             self.my_pyramid.add_bricks(bricks)
             self.bricks -= bricks
         else:
             pass
+
+
     def work(self):
         d = 0
         r = 0
         n = 15-self.bricks
         self.buy_bricks(n)
+        
         for i in range(self.my_pyramid.max_h, 0, -1):
             r+=i
         while r-self.my_pyramid.bricks_count>=5:
@@ -72,6 +85,8 @@ class Builder:
         else:
             pass
         print(f'day {d}')
+
+
     def work_day(self):
         r=0
         for i in range(self.my_pyramid.max_h, 0, -1):
@@ -96,6 +111,7 @@ class Builder:
 
 b = Builder(13)
 
-while True:
-    b.work_day()
+if __name__ == '__main__':
+    while True:
+        b.work_day()
 #b.work_day()
