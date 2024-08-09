@@ -44,9 +44,26 @@ class ClassVector:
             z1 = self.z * other
             return ClassVector(x1, y1, z1)
         else:
-            print('Traceback (most recent call last):\n  File "/workspaces/math_modeling/lab3.py", line 26 \n   def __add__(self, other):\n                     ^\nSyntaxError: invalid syntax.')
+            print('Traceback (most recent call last):\n  File "/workspaces/math_modeling/lab3.py", line 35 \n   def __add__(self, other):\n                     ^\nSyntaxError: invalid syntax.')
     
-    def 
+    def __radd__(self, other):
+        return self.__add__(other, self)
+    
+    def __rsub__(self, other):
+        return self.__sub__(other, self)
+    
+    def __rmul__(self, other):
+        return self.__mul__(other, self)
+
+    def __iadd__(self, other):
+        if type(other) == ClassVector:
+            self.x += other.x
+            self.y += other.y
+            self.z += other.z
+            return self
+        else:
+            print('Traceback (most recent call last):\n  File "/workspaces/math_modeling/lab3.py", line 58 \n   def __add__(self, other):\n                     ^\nSyntaxError: invalid syntax.')
+    
 
 
 
