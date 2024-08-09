@@ -1,24 +1,26 @@
 class Cell:
-    cells = 0
     def __init__(self, n):
-        self.cell = [cell]*n
-        cells += 1
-    
+        self.cell = ['cell']*n
+        
     def __add__(self, other):
-        cell_1 = self.cell.copy()
-        for i in range(0, len(other.cell.copy())):
-            cell_1.append(other.cell.copy[i])
+        cell_1 = ['cell']*(len(self.cell)+len(other.cell))
         return cell_1
     
     def __sub__(self, other):
-        cell_1 = self.cell.copy()
-        for i in range(0, len(other.cell.copy())):
-            cell_1.pop(0)
+        cell_1 = ['cell']*(len(self.cell)-len(other.cell))
         return cell_1
         
-    def __mul__():
+    def __mul__(self, other):
+        cell_1 = ['cell']*(len(self.cell)*len(other.cell))
+        return cell_1
         
-        
-    def __truediv__():
-        
+    def __truediv__(self, other):
+        cell_1 = ['cell']*round(len(self.cell)/len(other.cell))
+        return cell_1
+
+
+     
+s = Cell(6)
+d = Cell(3)
+print(s/d)
         
