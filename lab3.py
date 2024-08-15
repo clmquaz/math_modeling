@@ -64,9 +64,46 @@ class ClassVector:
         else:
             print('Traceback (most recent call last):\n  File "/workspaces/math_modeling/lab3.py", line 58 \n   def __add__(self, other):\n                     ^\nSyntaxError: invalid syntax.')
     
-
-
-
+    def  __isub__(self, other):
+        if type(other) == ClassVector:
+            self.x -= other.x
+            self.y -= other.y
+            self.z -= other.z
+            return self
+        else:
+            print('Traceback (most recent call last):\n  File "/workspaces/math_modeling/lab3.py", line 58 \n   def __add__(self, other):\n                     ^\nSyntaxError: invalid syntax.')
+    
+    def __imul__(self, other):
+        if type(other) == ClassVector:
+            self.x *= other.x
+            self.y *= other.y
+            self.z *= other.z
+            return self
+        elif type(other) == int or type(other) == float:
+            self.x *= other
+            self.y *= other
+            self.z *= other
+            return self
+        else:
+            print('Traceback (most recent call last):\n  File "/workspaces/math_modeling/lab3.py", line 35 \n   def __add__(self, other):\n                     ^\nSyntaxError: invalid syntax.')
+    
+    def  __eq__(self, other):
+        self.x == other.x
+        self.y == other.y
+        self.z == other.z
+        return self
+    
+    def  __ne__(self, other):
+        self.x != other.x
+        self.y != other.y
+        self.z != other.z
+        return self != other
+    
+    def  __pow__(self, other):
+        self.x **= other
+        self.y **= other
+        self.z **= other
+        return self
 
     
 v = ClassVector(2, 4, 5)
