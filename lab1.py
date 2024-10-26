@@ -1,16 +1,55 @@
-def fun(n, nu, a):
+def fun(n, nu, a, z):
     if len(a)!=n:
         a.append(nu)
-        fun(n, nu+1, a)
+        if n%nu == 0:
+            z.append(nu)
+        else:
+            pass
+        fun(n, nu+1, a, z)
     else:
-        return a
+        return a, z
     
 def number(p):
-    q = 0
     a = []
-    fun(p, 1, a)
-    map(lambda a, q: q+1 if 0 == p%a else q, a)
-    print(q)
-    s = lambda q: 'yes' if q==2 or q ==1 else 'no'
-    print(s(q))
-number(1)
+    z = []
+    fun(p, 1, a, z)
+    s = lambda z: 'yes' if len(z)==2 or len(z) ==1 else 'no'
+    if s(z) == 'yes':
+        yield 2**p
+    else:
+        pass
+
+
+number(2)
+
+
+
+
+
+
+
+
+
+
+
+def func(n, nu, a, z):
+    if len(a)!=n:
+        a.append(nu)
+        if n%nu == 0:
+            z.append(nu)
+        else:
+            pass
+        fun(n, nu+1, a, z)
+    else:
+        return a, z
+    
+
+def numbers(p):
+    a = []
+    z = []
+    fun(p, 1, a, z)
+    for i in range(0, len(z)-1):
+        z[i] = z[i]**2
+    return z
+
+print(numbers(4))
